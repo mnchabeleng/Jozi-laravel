@@ -1,0 +1,21 @@
+<?php
+
+namespace App\Http\Controllers\Api;
+
+use App\Http\Controllers\Controller;
+use App\Http\Resources\CategoryResource;
+use Illuminate\Http\Request;
+use App\Models\Category;
+
+class CategoryController extends Controller
+{
+    public function index()
+    {
+        return CategoryResource::collection(Category::all());
+    }
+
+    public function show($slug)
+    {
+        return new CategoryResource(Category::where('slug', $slug)->first());
+    }
+}
