@@ -9,8 +9,9 @@ API for Jozi landing page
 ### Getting started
 
 1. Clone project
-2. $ php artisan install
-3. $ touch ./database/database.sqlite
-4. $ php artisan migrate
-5. $ php artisan db:seed
-6. $ php artisan serve ~ running on localhost:8000/api/listings
+2. Rename .env.example to .env
+3. $ php artisan install
+4. $ touch ./database/database.sqlite
+5. $ php artisan migrate
+6. $ php artisan db:seed
+7. $ php artisan serve ~ running on localhost:8000/api/listings
