@@ -26,7 +26,7 @@ class ImageFactory extends Factory
             'listing_id' => function() {
                 return factory(Listing::class)->create()->id;
             },
-            'image' => $this->faker->imageUrl(300, 300, null, true, 'Faker')
+            'image' => $this->faker->imageUrl(600, 400, null, true, 'Faker')
         ];
     }
 }
