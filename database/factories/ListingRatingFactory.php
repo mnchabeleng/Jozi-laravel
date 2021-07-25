@@ -4,6 +4,8 @@ namespace Database\Factories;
 
 use App\Models\ListingRating;
 use Illuminate\Database\Eloquent\Factories\Factory;
+use App\Models\User;
+use App\Models\Listing;
 
 class ListingRatingFactory extends Factory
 {
@@ -22,7 +24,9 @@ class ListingRatingFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'user_id' => rand(1, count(User::all())),
+            'listing_id' => rand(1, count(Listing::all())),
+            'rating' => rand(1, 5)
         ];
     }
 }

@@ -2,7 +2,6 @@
 
 namespace Database\Seeders;
 
-use Illuminate\Support\Str;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 use App\Models\Location;
@@ -20,8 +19,7 @@ class LocationSeeder extends Seeder
         foreach($locations as $location)
         {
             Location::create([
-                'name' => $location,
-                'slug' => Str::slug($location, '-')   . '-' . Str::uuid(),
+                'name' => $location
             ]);
         }
     }

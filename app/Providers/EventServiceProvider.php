@@ -7,11 +7,14 @@ use Illuminate\Auth\Listeners\SendEmailVerificationNotification;
 use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvider;
 use Illuminate\Support\Facades\Event;
 
+use App\Models\User;
 use App\Models\Listing;
-use App\Observers\ListingObserver;
-
 use App\Models\Category;
+use App\Models\Location;
+use App\Observers\UserObserver;
+use App\Observers\ListingObserver;
 use App\Observers\CategoryObserver;
+use App\Observers\LocationObserver;
 
 class EventServiceProvider extends ServiceProvider
 {
@@ -33,6 +36,9 @@ class EventServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        User::observe(UserObserver::class);
+        Listing::observe(ListingObserver::class);
+        Category::observe(CategoryObserver::class);
+        Location::observe(LocationObserver::class);
     }
 }

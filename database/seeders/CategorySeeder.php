@@ -2,7 +2,6 @@
 
 namespace Database\Seeders;
 
-use Illuminate\Support\Str;
 use Illuminate\Database\Seeder;
 use App\Models\Category;
 
@@ -21,7 +20,6 @@ class CategorySeeder extends Seeder
         {
             Category::create([
                 'name' => $category,
-                'slug' => Str::slug($category, '-')   . '-' . Str::uuid(),
                 'image' => "img/category/$count.jpg"
             ]);
 

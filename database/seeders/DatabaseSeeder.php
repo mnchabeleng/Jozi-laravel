@@ -18,6 +18,7 @@ class DatabaseSeeder extends Seeder
             LocationSeeder::class,
             UserSeeder::class,
             CommentSeeder::class,
+            ListingRatingSeeder::class,
         ]);
     }
 }

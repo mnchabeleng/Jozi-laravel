@@ -3,9 +3,8 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
-use App\Models\ListingRating;
 
-class ListingRatingSeeder extends Seeder
+class {{ class }} extends Seeder
 {
     /**
      * Run the database seeds.
@@ -14,6 +13,6 @@ class ListingRatingSeeder extends Seeder
      */
     public function run()
     {
-        ListingRating::factory()->count(1000)->create();
+        //
     }
 }

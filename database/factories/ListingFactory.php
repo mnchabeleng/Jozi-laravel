@@ -2,7 +2,6 @@
 
 namespace Database\Factories;
 
-use Illuminate\Support\Str;
 use App\Models\Listing;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use App\Models\User;
@@ -26,6 +25,14 @@ class ListingFactory extends Factory
     public function definition()
     {
         $title = $this->faker->words(rand(3, 5), true);
+        
+        $times = [
+            ['start' => '09:00', 'end' => '15:00'],
+            ['start' => '14:00', 'end' => '23:00'],
+            ['start' => '20:00', 'end' => '02:00']
+        ];
+        $timeValue = rand(0, 2);
+
         return [
             'user_id' => function() {
                 return factory(User::class)->create()->id;
@@ -33,12 +40,13 @@ class ListingFactory extends Factory
             'location_id' => rand(1, count(Location::all())),
             'category_id' => rand(1, count(Category::all())),
             'title' => $title,
-            'slug' => Str::slug($title, '-') . ' ' . Str::uuid(),
             'description' => $this->faker->paragraph(rand(10, 20), true),
             'rating' => rand(3, 5),
             'phone' => $this->faker->e164PhoneNumber(),
             'address' => $this->faker->streetAddress(),
             'website' =>$this->faker->domainName(),
+            'start' => $times[$timeValue]['start'],
+            'end' => $times[$timeValue]['end']
         ];
     }
 }

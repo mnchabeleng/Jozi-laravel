@@ -18,7 +18,7 @@ class UserResource extends JsonResource
         return [
             'id' => $this->id,
             'name' => $this->name,
-            'avatar' => $this->avatar,
+            'avatar' => asset($this->avatar),
             'listings' => ListingResource::collection($this->listings),
             'created_at' => $this->created_at,
             'updated_at' => $this->updated_at

@@ -28,8 +28,9 @@ class ListingResource extends JsonResource
             'address' => $this->address,
             'phone' => $this->phone,
             'website' => $this->website,
-            'rating' => $this->rating,
+            'rating' => round(array_sum($this->listingRatings->map(function($item){ return $item->rating; })->all()) / count($this->listingRatings), 1),
             'time' => [
+                'status' => (strtotime(now()->format('H:i')) > strtotime($this->start) && strtotime('now') < strtotime($this->start)) ? 'OPEN' : 'CLOSED',
                 'open' => $this->start,
                 'close' => $this->end
             ],
@@ -49,7 +50,7 @@ class ListingResource extends JsonResource
             'user' => [
                 'id' => $this->user->id,
                 'name' => $this->user->name,
-                'avatar' => $this->user->avatar,
+                'avatar' => asset($this->user->avatar),
                 'created_at' => $this->user->created_at,
                 'updated_at' => $this->user->updated_at
             ],
